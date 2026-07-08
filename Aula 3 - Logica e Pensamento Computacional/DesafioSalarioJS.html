@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Teste de codigo. Uso do html para leitura no console pela web f12</h1>
+
+    <script>
+      var salarioBruto = parseFloat(prompt("Digite seu salário bruto: "));
+      var beneficios = parseFloat(
+        prompt("Digite o valor somado dos benefícios: "),
+      );
+
+      var imposto = calcularImposto(salarioBruto);
+
+      var salarioLiquido = salarioBruto - imposto + beneficios;
+      console.log(`Seu salário líquido é de: R$${salarioLiquido.toFixed(2)}`);
+      function calcularImposto(salario) {
+        let aliquota;
+        if (salario >= 0.01 && salario <= 1100.0) {
+          aliquota = 0.05;
+        } else if (salario > 1100.0 && salario <= 2500.0) {
+          aliquota = 0.1;
+        } else if (salario > 2500.0) {
+          aliquota = 0.15;
+        } else {
+          console.log(
+            "Valor informado no salário precisa ser maior que R$0.00",
+          );
+        }
+        return aliquota * salario;
+      }
+    </script>
+  </body>
+</html>
